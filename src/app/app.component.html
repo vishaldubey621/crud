@@ -1,0 +1,46 @@
+
+ <!--Reactive form-->
+<form [formGroup]="Formdata" (ngSubmit)="adduser(Formdata)"> 
+
+  <h2> CRUD OPERATION</h2>
+  <div class="col-sm-6">
+    <label for="exampleInputPassword1" class="form-label">First Name</label>
+    <input type="input" class="form-control"  formControlName ="fname" >
+  </div>
+
+  <div class="col-sm-6">
+    <label for="exampleInputPassword1" class="form-label">LastName</label>
+    <input type="input" class="form-control"  formControlName="lname">
+  </div>
+
+  <div class="col-sm-6">
+    <label for="exampleInputPassword1" class="form-label">Mobile Number</label>
+    <input type="number" class="form-control"  formControlName="phone">
+  </div>
+
+  <div class="col-sm-6">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control"  aria-describedby="emailHelp" formControlName="email">
+  
+  </div>
+  <button type="submit" class="btn btn-primary">ADD USER</button>
+</form>
+
+
+<!--table for display data-->
+<table class="table table-bordered">
+  <th scope="col">First name</th>
+  <th>Last name</th>
+  <th>mobile </th>
+  <th>Email</th>
+  <th>Edit user</th>
+  <th>DeleteUser</th>
+  <tr *ngFor = " let user of allUser" >
+    <td>{{user.fname}}</td>
+    <td>{{user.lname}}</td>
+    <td>{{user.phone}}</td>
+    <td>{{user.email}}</td>
+    <td><button (click)="edituser(user)">edit</button></td>
+    <td><button (click) ="deleteuser(user)" >delete</button></td>
+  </tr>
+</table>
